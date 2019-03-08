@@ -1,6 +1,5 @@
 
 $("#btn").click(function(){
-
   var request =async function (){
     const myHeaders = new Headers();
    myHeaders.append('Content-Type', 'application/json');
@@ -20,7 +19,7 @@ $("#btn").click(function(){
       window.location ='/'
     }
   });
- }
+  }
 //input
 var email =$("#email").val()
 var password =$("#password").val()

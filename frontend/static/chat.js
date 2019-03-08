@@ -1,3 +1,6 @@
+if(!localStorage.getItem("token")){
+  window.location="/"
+}else{
   var socket = io();
 
     var d = new Date();
@@ -111,4 +114,4 @@ room_change.click(function(){
       var strTime = hours + ':' + minutes + '' + ampm;
       return strTime;
     }
-  
+}
