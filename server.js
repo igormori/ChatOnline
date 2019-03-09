@@ -3,6 +3,7 @@ var http = require('http');
 var path = require('path');
 var app = express();
 var server = http.Server(app);
+const PORT =  5000;
 
 //mangoose connection
 var db = require('./backend/dbConnection.js')
@@ -19,7 +20,7 @@ let eventsLog=require("./backend/routes/routes.js");
 
 //routes to use
 app.use('/api',eventsLog); 
-app.set('port', 5000);
+app.set('port', PORT);
 app.use('/static', express.static(__dirname + '/frontend/static'));
 // Routing
 app.get('/chat', function(request, response) {
@@ -31,8 +32,11 @@ app.get('/', function(request, response) {
 app.get('/register', function(request, response) {
   response.sendFile(path.join(__dirname, '/frontend/register.html'));
 });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/frontend/index.html'))
+  })
 // Starts the server.
-server.listen(5000, function() {
+server.listen(PORT, function() {
   console.log('Starting server on port 5000');
 });
 
