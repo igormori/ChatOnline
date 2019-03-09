@@ -3,7 +3,7 @@ var http = require('http');
 var path = require('path');
 var app = express();
 var server = http.Server(app);
-const PORT =  5000;
+const PORT = process.env.PORT || 3030;
 
 //mangoose connection
 var db = require('./backend/dbConnection.js')
