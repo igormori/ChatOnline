@@ -4,6 +4,7 @@ const eventController = require("../controller/eventController.js");
 const users = require("../controller/usersController.js");
 const history = require("../controller/historyController")
 const register = require("../auth/AuthController")
+const rooms = require("../controller/roomsController")
 
 
 //history routes
@@ -29,6 +30,11 @@ router.get('/me',register.getMe)
 //login routes
 router.post('/login',register.login);
 router.get('/logout',register.logout);
+
+//room route
+router.get('/rooms',rooms.getRooms);
+router.post('/rooms',rooms.createRoom);
+router.put('/rooms/:name',rooms.editRoom);
 
 
 module.exports = router;

@@ -33,7 +33,6 @@ exports.registerHistory = async function (req, res) {
             res.status(400).send({
                 message:"no data",
                 error:error.message
-    
             })
         }
     }

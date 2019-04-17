@@ -1,0 +1,11 @@
+.divs {
+    transition: background-color .2s !important;
+    text-decoration: none !important;
+    color: black !important
+  }
+  
+.divs:hover {
+    background-color: #2A4B7C !important;
+    color: white !important;
+    cursor: pointer;
+  }

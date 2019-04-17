@@ -5,7 +5,9 @@ const eventLogs = mongoose.Schema({
     user : String,
     date: String,
     time: String,
-    event: String
+    type: String,
+    eventID:String,
+    PPID:String
 })
 
 module.exports = mongoose.model('eventLogs', eventLogs);

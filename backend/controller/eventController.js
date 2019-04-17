@@ -6,10 +6,12 @@ exports.registerEvents = async function (req, res) {
             user:req.body.user,
             date:req.body.date,
             time: req.body.time,
-            event: req.body.event
+            type: req.body.type,
+            eventID:req.body.eventID,
+            PPID:req.body.PPID
         })
         res.status(200).send({
-            message: req.body.user
+            message: "event log created!"
         })
     }catch(error){
         res.status(404).send({
