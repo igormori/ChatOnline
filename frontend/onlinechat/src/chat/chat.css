@@ -1,6 +1,6 @@
 #sub{
     width: 100%;
-    background-color: #223A5E !important;
+    background-color: #79C753 !important;
     color: aliceblue !important;
     margin-bottom:0px !important;
 }
@@ -12,4 +12,57 @@
 #outlined-name{
     margin-bottom:0px !important;
 }
+.chatNav{
+    height:100vh;  
+}
+.chat{
+    height:100vh;
+}
+.text-center{
+    text-align:center
+}
+.text-left{
+    text-align:left
+}
+.border{
+  padding: 10px;
+  border-radius: 10px;
+}
 
+.mt{
+    margin-top:10px
+}
+.m-2{
+     margin:25px !important
+}
+.mt-4{
+    margin-top:25px
+}
+.p-2{
+    padding:20px !important
+}
+.pb{
+    padding-bottom: 10px !important
+}
+.text-white{
+    color:white !important
+}
+.text-dark{
+    color: black !important;
+    text-decoration: none!important
+}
+
+.border-none{
+    border:none !important
+}
+
+.messages{
+    width:100%
+}
+.mb-4{
+    margin-bottom:20px !important
+}
+
+.float{
+    float:right
+}

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
 import TextField from '@material-ui/core/TextField';
 import './chat.css'
 import io from "socket.io-client";
@@ -13,12 +11,16 @@ import { PPID } from '../FrontEndController'
 
 let isNewUser = true
 
+
+
+
 class Chat extends Component {
   state ={
     name:"Guest",
-    room:"",
+    room:"Room not connected",
     rooms:[],
     disconectionBtn :"",
+    textField :"",
     messages:[],
     users:[]
   }
@@ -43,15 +45,19 @@ class Chat extends Component {
       isNewUser = false
       var user = CheckUserConnected()
       this.setState({name: user.name,room:user.room})
-      this.setState({disconectionBtn: <div className='col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4  p-5'><h5>Click bellow to disconnect</h5><button className='btn mt-2 bg-danger text-white' onClick={this.handleClick}>Disconnect</button></div>})
+      this.setState({disconectionBtn: <div className='col s12 m12 l12 mt'><button className='btn mt deep-orange darken-4'  onClick={this.handleClick}>Disconnect</button></div>})
+      this.setState({textField: <div className='col s12 m12 l12 mt'>Welcome<b>{this.state.name}</b></div>})
     } else{
-      this.setState({disconectionBtn:<div className='col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4  p-5'> <h5>Plese select you name</h5><TextField id='outlined-name' label='Name' onChange={this.handleChangeName} /><button className='btn m-4' id='sub2' onClick={this.handleClick}>Connect</button></div> })
+      this.setState({disconectionBtn:<div className='col s12 m12 l12 mt'><button className='btn mt' id='sub2' onClick={this.handleClick}>Connect</button></div> })
+      this.setState({textField: <div className='col s12 m12 l12 mt'><b>Plese enter you name</b><br></br><TextField id='outlined-name' label='Name' onChange={this.handleChangeName} /></div>})
     }  
 
 // <------ listen for messages update ------->
     this.socket.on("new_update",(data)=>{
+      console.log(data.message)
       this.setState(prevState => { const { messages }  = prevState;messages.push(data.message);return { messages };});
-      this.setState({disconectionBtn: <div className='col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4  p-5'><h5>Click bellow to disconnect</h5><button className='btn mt-2 bg-danger text-white' onClick={this.handleClick}>Disconnect</button></div>})
+        this.setState({textField: <div className='col s12 m12 l12 mt'>Welcome<b>{this.state.name}</b></div>})
+      this.setState({disconectionBtn: <div className='col s12 m12 l12 mt'><button className='btn mt deep-orange darken-4'  onClick={this.handleClick}>Disconnect</button></div>})
     })
 // <------ listen for users list update ------->
 
@@ -83,15 +89,11 @@ class Chat extends Component {
       this.socket.emit('sendUserInfo', { name: this.state.name, room: this.state.room });
       //create connection event log
        API.frontEnd.eventLogs.post("connection",this.state.name,DATE(),TIME(),EVENTID("connection"),PPID("connection")).then((success) => {
-          console.log(success.data)
         }).catch((error) => {
-          console.log(error)
         })
         //create joined event log
        API.frontEnd.eventLogs.post("joined",this.state.name,DATE(),TIME(),EVENTID("joined"),PPID("joined")).then((success) => {
-          console.log(success.data)
         }).catch((error) => {
-          console.log(error)
         })
 
     }else{
@@ -110,56 +112,78 @@ class Chat extends Component {
   }
 
   render() {
-    return <div className="m-1" >
+    const { classes } = this.props;
+    return <div className=" s" >
     
-      <div className='container-fluid  blue-grey lighten-5 rounded z-depth-1 mt-3'>
-        <div className='row text-center'>
-        <div className='col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 p-5 '>
-                <h4>Hello <b class='text-primary'>{this.state.name}</b></h4>
-                <h4>Welcome to online chat room <b class='text-primary'>{this.state.room}</b>! </h4>
-            </div>
-            <div className='col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4  p-5 '>   
-            <h5 className="mb-4">Plese select you room</h5>  
-            <DropdownButton className="mt-2" id="dropdown-basic-button" title="Rooms avaliables"> 
-              {this.state.rooms.map((value, index) => {
-                                    return <Dropdown.Item onClick={this.handlerRoom}>{value.name}</Dropdown.Item>
-                                })}
-            </DropdownButton>
-            </div>
-           {this.state.disconectionBtn}
-        </div>
-      </div>
+    <div className="row">
 
-
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-8 border p-2 blue-grey lighten-5 rounded">
-            <i className="material-icons small">chat</i><h5>Chat messages </h5>
-                   <ul className="collection" id="messages">
-                   {this.state.messages.map((value, index) => {
-                                    return  <li>{value}</li>
+      <div className="col s12 m2 l2 chatNav pb grey lighten-5  z-depth-2 ">
+        <div className="row">
+            <div className="col s12 m12 l12 text-center pb grey lighten-5 ">
+                  <h5>Online chat</h5>
+            </div>
+            <div className="col s12 m12 l12 text-center mt grey lighten-5 p-2">
+                 <i class="material-icons medium">account_circle</i> {this.state.textField}
+            </div>
+            <div className="col s12 m12 l12 text-center pb  grey lighten-5 p-2  mt">
+            <div >
+            <h5><b>Avaliables rooms</b></h5>
+            </div>
+            
+            <div class="collection border-none grey lighten-3">
+             {this.state.rooms.map((value, index) => {
+                                    return  <a href="#!" onClick={this.handlerRoom} class="collection-item text-dark">{value.name}</a>
                                 })}
-                   </ul>
               </div>
-              <div className="col-4 border p-2  blue-grey lighten-5 rounded ">
-              <i className="material-icons small">group</i><h5>User`s list </h5>
-                   <ul className="collection" id="users">
-                    {this.state.users.map((value, index) => {
-                                    return  <li>{value}</li>
-                                })}
-                   </ul>
+            </div>
+            <div className="col s12 m12 l12 mt text-center pb grey lighten-5 p-2  mt ">
+          {this.state.room}
+                {this.state.disconectionBtn}
+             </div>
+      </div>
+       </div>
+       
+      <div className="col s10 m10 l10 chat ">
+
+      <div className="col s12 m12 l10 chat ">
+      
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col border">
+               <h5><i class="material-icons small">message</i>Chat messages</h5>
+                   <div id="messages mb-4 " >
+                   {this.state.messages.map((value, index) => {
+                                    return  <div class="messages border grey lighten-5 m-2">{value}</div>
+                                })}   
+                   </div>
+
               </div>
             </div>
           </div> 
-        
+          <div>
+          <input id='m' autocomplete='off' placeholder="Enter your message" />
+          </div>
+          <div class="form float"> <button class="btn waves-effect waves-light" type="submit" name="action">Send
+    <i class="material-icons right">send</i>
+  </button></div>
 
-    <div className='col'>
-    <div className="form m-2"><input id='m' autoComplete='off'/></div>
-    </div>
-    <div className='col m-2'>
-    <button className='btn' id='sub'>Send</button>
-    </div>
+      </div>
+      <div className="col s12 m12 l2 chat z-depth-1">
+       <div class="col-4 border">
+              <h5><i class="material-icons small">account_circle</i>User`s list</h5>
+                    <div id="users mb-4 " >
+                   {this.state.users.map((value, index) => {
+                                    return  <div class="messages border grey lighten-5 m-2">{value}</div>
+                                })}   
+                   </div>
+                   
+              </div>
+      </div>
       
+      </div>
+
+    </div>
+          
     </div>;
   }
 }

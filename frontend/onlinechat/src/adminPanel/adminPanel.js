@@ -27,33 +27,31 @@ class AdminPanel extends Component {
 
   render() {
     return <div>
-        <div className='container-fluid '>
           <div className="row">
-              <div className="col-0 col-sm-0 col-lg-3 col-xl-3">
+              <div className="col s0 m3 l3">
               </div>
-              <div className="col-12 col-sm-12 col-lg-6 col-xl-6  rounded">
-                <div className='container-fluid p-5'>
+              <div className="col s12 m6 l6  rounded">
+                <div className='container p-5'>
                       <div className="rows row bg-light rounded z-depth-1">                 
-                      <Link className="divs col-4 text-center p-2 rounded-left" to="/admin/eventHystory">
+                      <Link className="divs col s4 m4 l4 text-center p-2 rounded-left" to="/admin/eventHystory">
                       <i class="material-icons small">history</i><br></br>
                       Event history  
                       </Link>   
-                      <Link className="divs col-4 text-center p-2" to="/admin/chatHistory">
+                      <Link className="divs col s4 m4 l4 text-center p-2" to="/admin/chatHistory">
                       <i class="material-icons small">chat</i><br></br>
                         Chat history
                         </Link>  
-                      <Link className="divs col-4 text-center p-2 rounded-right" to="/admin/rooms">
+                      <Link className="divs col s4 m4 l4 text-center p-2 rounded-right" to="/admin/rooms">
                       <i class="material-icons small">home</i><br></br>
                       Rooms
                       </Link>  
                       </div>
                     </div>
               </div>
-              <div className="col-0 col-sm-0 col-lg-3 col-xl-3">
+              <div className="col s0 m3 l3">
               </div>
           </div>
-        </div>
-
+   
     </div>;
   }
 }
