@@ -3,19 +3,20 @@ var history = require('../model/historyModel')
 exports.registerHistory = async function (req, res) {
     try{
         await history.create({
+            id:req.body.id,
             sender:req.body.sender,
-            reciever:req.body.reciever,
+            reciever:[req.body.reciever],
             message:req.body.message,
             date:req.body.date,
-            time: req.body.time,
-            room: req.body.room
+            time:req.body.time,
+            room:req.body.room
         })
         res.status(200).send({
-            message: req.body.user
+            message: "history was sucesfull created!"
         })}
         catch(error){
             res.status(404).send({
-                message: req.body.user,
+                message: "error",
                 error:error.message
             })
         }

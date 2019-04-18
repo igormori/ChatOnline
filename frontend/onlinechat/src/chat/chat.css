@@ -66,3 +66,14 @@
 .float{
     float:right
 }
+
+.scroll{
+    
+    width: 100%!important;
+
+    max-height: 500px!important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: scroll !important
+  }

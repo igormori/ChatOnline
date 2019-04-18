@@ -18,8 +18,37 @@ export const API = {
           PPID:PPID
         })
       }
+    },
+    user:{
+      get:function(room){
+        return axios.get('http://localhost:5000/api/users/game5')
+    },
+      post:function(user,date,time,room){
+        return axios.post('http://localhost:5000/api/users',{
+          user:user,
+          date:date,
+          time:time,
+          room:room,
+          connected:true
+        })
+      }
+    },
+    messages:{
+      post:function(id,sender,reciever,message,date,time,room){
+        return axios.post('http://localhost:5000/api/history',{
+          id:id,
+          sender:sender,
+          reciever:reciever,
+          message:message,
+          date:date,
+          time:time,
+          room:room
+        })
+      }
+
     }
   }
+
 }
 
 export const CheckUserConnected =  function(){
@@ -86,4 +115,8 @@ export const PPID = function(event) {
     if(event == "error"){
     return "1008"
   }
+}
+
+export const RND =  function(){
+  return Math.floor(Math.random() * 1000)
 }

@@ -21,7 +21,8 @@ router.put('/users/room/:email',users.editRoom);
 router.post('/users',users.registerUsers);
 router.put('/users/:email',users.editOne);
 router.get('/users/',users.getusers);
-router.get('/users/:email',users.getOneUser);
+//router.get('/users/:email',users.getOneUser);
+router.get('/users/:room',users.getUserByRoom );
 
 //registration routes
 router.post('/register',register.register);

@@ -58,7 +58,7 @@ exports.editRoom = async function (req, res) {
 
 exports.getOneUser = async function(req,res){
     try{
-        let getUsers = await users.find({email:req.params.email})
+        let getUsers = await users.findOne({email:req.params.email})
         res.status(200).send(getUsers)
     }catch(error){
         res.status(400).send({
@@ -68,6 +68,18 @@ exports.getOneUser = async function(req,res){
         })
     }
 }
+exports.getUserByRoom = async function(req,res){
+    try{
+        let getUsers = await users.find({room:req.params.room})
+        res.status(200).send(getUsers)
+    }catch(error){
+        res.status(400).send({
+            message:"no data",
+            error:error.message
+        })
+    }
+}
+
 
 exports.getusers = async function(req,res){
     try{
