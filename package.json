@@ -23,7 +23,7 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-prebuild": "cd backend && npm install",
-    "heroku-postbuild": "cd .. && npm install"
+    "heroku-postbuild": "cd .. && cd frontend"
   },
   "author": "",
   "license": "ISC",
