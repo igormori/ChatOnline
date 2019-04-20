@@ -18,11 +18,11 @@
   },
   "scripts": {
     "client-install": "cd.. && cd frontend && cd onlinechat && npm install --prefix client",
-    "start": "concurrently \"npm start\" \"cd .. && cd frontend && cd onlinechat && npm install  && npmstart\"",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon server.js",
-    "client": "npm start --prefix client",
+    "client": "npm start ",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-prebuild": "concurrently \"npm start\" \"cd .. && cd frontend && cd onlinechat && npm install  && npmstart\"",
+    "heroku-prebuild": "",
     "heroku-postbuild": "cd .. && cd frontend"
   },
   "author": "",
