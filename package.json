@@ -17,13 +17,9 @@
     "concurrently": "^4.1.0"
   },
   "scripts": {
-    "client-install": "cd.. && cd frontend && cd onlinechat && npm install --prefix client",
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "nodemon server.js",
-    "client": "npm start ",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-prebuild": "cd backend && npm install && npm start && cd .. && cd frontend ",
-    "heroku-postbuild": "cd .. && cd frontend"
+    "heroku-prebuild": "cd backend && npm install",
+    "start": "node server.js",
+    "heroku-postbuild": "cd .. && cd frontend && cd onlinechat && npm install && npm start"
   },
   "author": "",
   "license": "ISC",
