@@ -27,7 +27,9 @@
   },
   "scripts": {
     "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
-    
+    "heroku-prebuild": "cd backend",
+    "heroku-prebuild": "npm start",
+    "heroku-prebuild": "echo thuissss",
 
     "heroku-postbuild": "echo This runs afterwards."
   }
