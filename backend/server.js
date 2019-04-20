@@ -12,7 +12,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors()) // Use this after the variable declaration
-app.use(express.static(path.join(__dirname,'../frontend/onlinechat/public/index.html')))
+app.use(express.static(path.join(__dirname,'../frontend/onlinechat')))
 
 //socke.io
 var socketIO = require('socket.io');
