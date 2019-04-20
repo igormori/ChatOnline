@@ -20,7 +20,7 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-prebuild": "cd backend && npm install && npm start "
+    "heroku-prebuild": "cd backend && npm install"
   },
   "author": "",
   "license": "ISC",
