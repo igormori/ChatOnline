@@ -25,11 +25,11 @@ exports.registerUsers = async function (req, res) {
 
 exports.editOne = async function (req, res) {
     try {
-        await users.updateOne({email:req.params.email}, {
+        await users.updateOne({name:req.params.name}, {
             connected: req.body.connected
         })
         res.status(200).send({
-            message: "Done!"
+            message: "user changed"
         })
     } catch (error) {
         res.status(404).send({
@@ -41,11 +41,11 @@ exports.editOne = async function (req, res) {
 
 exports.editRoom = async function (req, res) {
     try {
-        await users.updateOne({email:req.params.email}, {
+        await users.updateOne({user:req.params.user}, {
             room: req.body.room
         })
         res.status(200).send({
-            message: "Done!"
+            message: "user changed"
         })
     } catch (error) {
         res.status(404).send({

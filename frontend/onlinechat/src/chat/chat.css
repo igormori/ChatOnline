@@ -63,17 +63,30 @@
     margin-bottom:20px !important
 }
 
-.float{
-    float:right
-}
 
-.scroll{
-    
+
+.scroll{ 
     width: 100%!important;
-
     max-height: 500px!important;
-
     display: flex !important;
     flex-direction: column !important;
-    overflow-y: scroll !important
+    overflow-y: scroll !important;
   }
+
+  .scrollRooms{ 
+    width: 100%!important;
+    max-height: 100px!important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: scroll !important;
+  }
+
+.rooms{
+    cursor: pointer;
+}
+.rooms:hover {
+    background-color:lightgrey;
+}
+
+
+  

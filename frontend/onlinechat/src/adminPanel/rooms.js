@@ -1,13 +1,19 @@
 import React from 'react';
-import axios from "axios"
+import axios from "axios";
+import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import {API} from '../FrontEndController'
+import { DATE } from '../FrontEndController'
 
 
 class Rooms extends React.Component {
     state = { 
-        rooms:[]
+        rooms:[],
+        editRoom:"",
+        deleteRoom:""
      }
 
-    componentWillMount(){
+    componentDidMount(){
             axios.get(`http://localhost:5000/api/rooms`).then(res =>{
                   console.log(res.data)
                   var roomsArray =[]
@@ -21,9 +27,37 @@ class Rooms extends React.Component {
            
         };
 
+        handleEdit = event =>{
+        
+            localStorage.setItem("editRoom",this.state.rooms[event].name)
+            let path = `/admin/editRoom`;
+            this.props.history.push(path);
+            
+        }
+
+        handleDelete = event =>{
+            console.log(event)
+            var res = window.confirm("Do you want to delete?")
+            if(res){
+            API.frontEnd.rooms.delete(this.state.rooms[event].name).then((res)=>{
+                console.log(res)
+            })
+            window.location.reload()
+            }
+           
+        }
+
+        handleCreate = event =>{
+            let path = `/admin/createRoom`;
+            this.props.history.push(path);
+        }
+
     
     render() { 
         return <div className="m-2">
+
+
+          <button className='btn ml green-orange darken-4 m' onClick={this.handleCreate}>Create a new Room</button>
             <div className='container-fluid'>
                 <div className='row'>                 
                     <div className='col-12 blue-grey lighten-5 rounded z-depth-1'>
@@ -46,7 +80,9 @@ class Rooms extends React.Component {
                                     <td>{value.createdDate}</td>
                                     <td>{value.editDate}</td>
                                     <td>{value.status}</td>
-                                    <td></td>
+                                    <td><button className='btn' onClick={this.handleEdit.bind(this, index)}>edit</button>
+                                    <button className='btn ml deep-orange darken-4'  onClick={this.handleDelete.bind(this, index)}>delete</button></td>
+                                    
                                     </tr>
                                 })}
                             </tbody>

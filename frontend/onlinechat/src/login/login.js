@@ -33,9 +33,9 @@ class Login extends Component {
     return <div>
 <div className='container-fluid  p-5'>
    <div className="row">
-      <div className="col-3">
+      <div className="col s0 m3 l3">
       </div>
-      <div className="col-6 bg-light p-5 rounded">
+      <div className="col s0 m6 l6 bg-light p rounded">
       <form method="post" onSubmit={this.handleSubmit} >
          <div id="message" role="alert"></div>
          <h3> Login to access admin panel  </h3>
@@ -50,7 +50,8 @@ class Login extends Component {
          <button className="btn" type="submit">Login</button>
          </form>
       </div>
-      <div className="col-3">
+      <div className="col s0 m3 l3">
+      
       </div>
    </div>
 </div>

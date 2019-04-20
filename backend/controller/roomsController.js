@@ -44,7 +44,7 @@ var rooms = require('../model/rooms')
             await rooms.findOne({ name: req.body.name }).then(
                 (result) => {
                     if (result) {
-                      res.status(500).send("erro user already exists")
+                      res.status(500).send("erro room already exists")
                      
                     } else {
                         rooms.updateOne({name:req.params.name}, {
@@ -77,3 +77,27 @@ var rooms = require('../model/rooms')
         }
    }
 
+
+   exports.getOneRoom = async function(req,res){
+    try{
+        let getRooms = await rooms.find({name:req.params.name})
+        res.status(200).send(getRooms)
+    }catch(error){
+        res.status(400).send({
+            message:"no data",
+            error:error.message
+        })
+    }
+}
+
+exports.delets = async function(req,res){
+    try{
+        let getRooms = await rooms.deleteOne({name:req.params.name})
+        res.status(200).send(getRooms)
+    }catch(error){
+        res.status(400).send({
+            message:"error to delete",
+            error:error.message
+        })
+    }
+}

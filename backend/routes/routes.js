@@ -17,11 +17,11 @@ router.post('/eventLog', eventController.registerEvents);
 router.get('/eventLog',eventController.getEvents);
 
 //users routes
-router.put('/users/room/:email',users.editRoom);
+router.put('/users/room/:user',users.editRoom);
+
 router.post('/users',users.registerUsers);
 router.put('/users/:email',users.editOne);
 router.get('/users/',users.getusers);
-//router.get('/users/:email',users.getOneUser);
 router.get('/users/:room',users.getUserByRoom );
 
 //registration routes
@@ -36,6 +36,8 @@ router.get('/logout',register.logout);
 router.get('/rooms',rooms.getRooms);
 router.post('/rooms',rooms.createRoom);
 router.put('/rooms/:name',rooms.editRoom);
+router.get('/rooms/:name',rooms.getOneRoom);
+router.post('/rooms/:name',rooms.delets)
 
 
 module.exports = router;

@@ -1,10 +1,35 @@
 import axios from "axios"
+import { CardActions } from "@material-ui/core";
 
 export const API = {
   frontEnd: {
     rooms: {
       get: function () {
         return axios.get('http://localhost:5000/api/rooms')
+      },
+      getOne:function(room){
+        return axios.get(`http://localhost:5000/api/rooms/${room}`)
+      },
+      editOne:function(room,name,id,createdDate,editDate,status){
+        return axios.put(`http://localhost:5000/api/rooms/${room}`,{
+          id:id,
+          name:name,
+          createdDate:createdDate,
+          editDate:editDate,
+          status:status
+        })
+      },
+      delete: function(room){
+        return axios.post(`http://localhost:5000/api/rooms/${room}`)
+      },
+      create: function(name,id,createdDate,editDate,status){
+        return axios.post(`http://localhost:5000/api/rooms`,{
+          id:id,
+          name:name,
+          createdDate:createdDate,
+          editDate:editDate,
+          status:status
+        })
       }
     },
     eventLogs:{
@@ -21,7 +46,7 @@ export const API = {
     },
     user:{
       get:function(room){
-        return axios.get('http://localhost:5000/api/users/game5')
+        return axios.get(`http://localhost:5000/api/users/${room}`)
     },
       post:function(user,date,time,room){
         return axios.post('http://localhost:5000/api/users',{
@@ -30,6 +55,16 @@ export const API = {
           time:time,
           room:room,
           connected:true
+        })
+      },
+      put:function(user){
+        return axios.put(`http://localhost:5000/api/users/${user}`,{
+          connected:false
+        })
+      },
+      putRoom:function(user,room){
+        return axios.put(`http://localhost:5000/api/users/room/${user}`,{
+          room:room
         })
       }
     },

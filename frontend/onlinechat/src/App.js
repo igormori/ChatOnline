@@ -6,6 +6,7 @@ import Login from './login/login'
 import AdminNavigation from './adminPanel/adminNavigation'
 import Chat from './chat/chat'
 
+
 class App extends Component {
   render() {
     return (
@@ -16,6 +17,7 @@ class App extends Component {
         <Route path="/login" component={Login}/>
         <Route path="/admin" component={AdminNavigation}/>
         <Route path="/chat" component={Chat}/>
+        
       </Switch>
   </BrowserRouter>
       </div>
