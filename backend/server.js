@@ -30,10 +30,10 @@ app.get('*',(req,res) =>{
 
 
 
-app.set('port', 5000);
+app.set('port', PORT );
 
 // Starts the server.
-server.listen(5000, function() {
+server.listen(PORT , function() {
   console.log('Starting server on port 5000');
 });
 
