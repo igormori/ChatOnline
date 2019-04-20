@@ -22,7 +22,7 @@
     "server": "nodemon server.js",
     "client": "npm start ",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-prebuild": "",
+    "heroku-prebuild": "cd backend && npm install && npm start && cd .. && cd frontend ",
     "heroku-postbuild": "cd .. && cd frontend"
   },
   "author": "",
