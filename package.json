@@ -27,9 +27,7 @@
   },
   "scripts": {
     "heroku-prebuild": "cd backend && npm install && npm start",
-    
-
-    "heroku-postbuild": "echo This runs afterwards."
+    "heroku-postbuild": "cd .. cd frontend && cd onlinechat && npm install && npm start "
   }
   
 }
