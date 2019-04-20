@@ -18,7 +18,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "heroku-prebuild": "cd backend && npm install && npm start ",
-    "heroku-postbuild": "cd .. && cd frontend && cd onlinechat && npm install && npm start "
+    "heroku-postbuild": "npm install && npm start "
   },
   "author": "",
   "license": "ISC",
