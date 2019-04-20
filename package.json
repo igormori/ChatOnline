@@ -19,7 +19,7 @@
   "scripts": {
     "heroku-prebuild": "cd backend && npm install",
     "start": "node server.js",
-    "heroku-postbuild": "cd .. && cd .. && ls"
+    "heroku-postbuild": "cd .. && cd .. && cd app && ls"
   },
   "author": "",
   "license": "ISC",
