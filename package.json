@@ -1,5 +1,5 @@
 {
-  "name": "sadasd",
+  "name": "GBCOnlineChat",
   "version": "1.0.0",
   "main": "dbConnection.js",
   "dependencies": {
@@ -16,9 +16,9 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "heroku-prebuild": "cd frontend && cd onlinechat && npm install && npm start ",
-    "heroku-postbuild": ""
+    "start": "cd backend && npm install && npm start ",
+    "heroku-prebuild": "cd frontend && cd onlinechat && npm install && npm start  ",
+    "heroku-postbuild": "cd frontend && cd onlinechat && npm install && npm start "
   },
   "author": "",
   "license": "ISC",
