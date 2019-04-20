@@ -17,7 +17,7 @@
     "concurrently": "^4.1.0"
   },
   "scripts": {
-    "heroku-prebuild": "cd backend && npm install",
+    "heroku-prebuild": "cd backend && npm install && node server.js",
     "start": "node server.js",
     "heroku-postbuild": "cd .. && cd .. && cd app && ls"
   },
