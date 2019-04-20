@@ -17,11 +17,11 @@
   "devDependencies": {},
   "scripts": {
     "client-install": "cd.. && cd frontend && cd onlinechat && npm install --prefix client",
-    "start": "cd.. && cd frontend && cd onlinechat && npm install && npm start",
+    "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-prebuild": "cd backend && npm install && npm start "
+    "heroku-prebuild": "cd backend && npm install "
   },
   "author": "",
   "license": "ISC",
