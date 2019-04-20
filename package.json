@@ -17,7 +17,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd backend && npm install && npm start ",
-    "heroku-prebuild": "cd frontend && cd onlinechat && npm install && npm start  ",
+    "heroku-prebuild": "cd frontend && cd onlinechat && npm install && npm start build ",
     "heroku-postbuild": "cd frontend && cd onlinechat && npm install && npm start "
   },
   "author": "",
