@@ -26,10 +26,8 @@
     "node": "8.11.4"
   },
   "scripts": {
-    "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
-    "heroku-prebuild": "cd backend",
-    "heroku-prebuild": "npm start",
-    "heroku-prebuild": "echo thuissss",
+    "heroku-prebuild": "cd backend && npm install && npm start",
+    
 
     "heroku-postbuild": "echo This runs afterwards."
   }
