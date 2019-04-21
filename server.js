@@ -4,7 +4,7 @@ var path = require('path');
 var app = express();
 var server = http.Server(app);
 var cors = require('cors')
-const PORT = process.env.PORT || 3030
+const PORT = process.env.PORT || 5000
 
 //mangoose connection
 var db = require('./backend/dbConnection.js')
