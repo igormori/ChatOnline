@@ -16,7 +16,7 @@ class Login extends Component {
             this.setState({password:event.target.value})
         };
 
-      //handles the form request
+      //handles the form request ss
       handleSubmit = event => {
             event.preventDefault();
             console.log(this.state.email)
