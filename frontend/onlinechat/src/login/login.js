@@ -20,7 +20,7 @@ class Login extends Component {
       handleSubmit = event => {
             event.preventDefault();
             console.log(this.state.email)
-          axios.post(`http://localhost:5000/api/login`,{email: this.state.email, password: this.state.password},{Headers: { 'content-type': 'application/json' }}).then(res =>{
+          axios.post(`/api/login`,{email: this.state.email, password: this.state.password},{Headers: { 'content-type': 'application/json' }}).then(res =>{
             console.log(res.data)
             if(res.data.auth){
                localStorage.setItem('token', res.data.token);
