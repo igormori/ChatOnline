@@ -12,7 +12,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors()) // Use this after the variable declaration
-app.use(express.static(path.join(__dirname,'../frontend/onlinechat')))
+app.use(express.static(path.join(__dirname,'../frontend/onlinechat/build')))
 
 //socke.io
 var socketIO = require('socket.io');
@@ -25,7 +25,7 @@ let routes = require("./routes/routes.js");
 app.use('/api',routes); 
 
 app.get('*',(req,res) =>{
-  res.sendFile(path.join(__dirname + '../frontend/onlinechat/public/index.html'))
+  res.sendFile(path.join(__dirname + '../frontend/onlinechat/build/index.html'))
 })
 
 
