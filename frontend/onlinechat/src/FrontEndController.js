@@ -6,7 +6,7 @@ export const API = {
   frontEnd: {
     rooms: {
       get: function () {
-        return axios.get(`${baseURL}/api/rooms`)
+        return axios.get(`/api/rooms`)
       },
       getOne:function(room){
         return axios.get(`http://localhost:5000/api/rooms/${room}`)
