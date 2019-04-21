@@ -29,7 +29,7 @@ function ButtonAppBar(props) {
 
  let handleLogout = event => {
     localStorage.removeItem('token')
-    window.location = '/chat'
+    window.location = '/'
   };
 
     if(isLoggedIn){
