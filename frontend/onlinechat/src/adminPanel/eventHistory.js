@@ -8,7 +8,7 @@ class EventHistory extends React.Component {
      }
 
     componentWillMount(){
-            axios.get(`http://localhost:5000/api/eventLog`).then(res =>{
+            axios.get(`/api/eventLog`).then(res =>{
                   console.log(res.data)
                   var eventsArray =[]
                   for(var i=0; i < res.data.length ; i++){

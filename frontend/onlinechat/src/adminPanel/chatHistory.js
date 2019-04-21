@@ -8,7 +8,7 @@ class ChatHistory extends React.Component {
      }
 
     componentWillMount(){
-            axios.get(`http://localhost:5000/api/history`).then(res =>{
+            axios.get(`/api/history`).then(res =>{
                   console.log(res.data)
                   var chatsArray =[]
                   for(var i=0; i < res.data.length ; i++){
