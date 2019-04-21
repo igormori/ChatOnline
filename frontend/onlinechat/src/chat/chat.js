@@ -35,6 +35,11 @@ class Chat extends Component {
               this.socket.emit('disconnection',{userName:this.state.name})
               API.frontEnd.eventLogs.post("disconnection",this.state.name,DATE(),TIME(),EVENTID("disconnection"),PPID("disconnection")).then((success) => {
               console.log(success.data)
+              API.frontEnd.user.put(this.state.name).then((res)=>{
+                console.log(res)
+              }).catch((error)=>{
+                console.log(error)
+              })
               window.alert("user disconnected")
             }).catch((error) => {
               console.log(error)
@@ -59,7 +64,6 @@ class Chat extends Component {
 
    handleChangeName =  event => {
     this.setState({name: event.target.value})
-    console.log(event.target.value)
   };
 
   handlerRoom = event => {
@@ -73,8 +77,8 @@ class Chat extends Component {
       localStorage.setItem('userRoom',this.state.room)
       this.socket.emit('sendUserInfo', { name: this.state.name, room: this.state.room });
       //create connection event log
-       API.frontEnd.eventLogs.post("connection",this.state.name,DATE(),TIME(),EVENTID("connection"),PPID("connection")).then((success) => {
-        }).catch((error) => {
+       API.frontEnd.eventLogs.post("connection",this.state.name,DATE(),TIME(),EVENTID("connection"),PPID("connection")).then((success) => {  
+      }).catch((error) => {
         })
         //create joined event log
        API.frontEnd.eventLogs.post("joined",this.state.name,DATE(),TIME(),EVENTID("joined"),PPID("joined")).then((success) => {
@@ -85,6 +89,7 @@ class Chat extends Component {
        this.setState({textField: <div className='col s12 m12 l12 mt'>Welcome <b> {this.state.name}</b> <br></br>Room: <b className="green-text text-darken-2">{this.state.room}</b></div>})
        this.setState({disconectionBtn: <div className='col s12 m12 l12 mt'><button className='btn mt deep-orange darken-4'  onClick={this.handleClick}>Disconnect</button></div>})
        this.setState({changeRoomBtn: <button className='btn mt' id='sub2' onClick={this.handleChangeRoom}>Change Room</button>}) 
+       console.log(this.state.user)
       }else{
       localStorage.removeItem('userName')
       localStorage.removeItem('userRoom')
@@ -102,6 +107,7 @@ class Chat extends Component {
         }).catch((error)=>{
           console.log(error)
         })
+        
         this.setState({changeRoomBtn: ""}) 
         // window.location.reload()
         
