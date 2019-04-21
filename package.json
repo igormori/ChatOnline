@@ -17,9 +17,9 @@
     "concurrently": "^4.1.0"
   },
   "scripts": {
-    "start": "node index.js",
-    "heroku-prebuild":"cd backend",
-    "postinstall": "npm install --prefix server && npm install --prefix frontend-app"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "heroku-postbuild": "cd frontend && cd onlinechat && yarn run build"
   },
   "author": "",
   "license": "ISC",
