@@ -18,7 +18,7 @@ class AdminPanel extends Component {
       'Content-Type': 'application/json',
       'x-access-token': token,
     };
-        axios.get(`http://localhost:5000/api/me`,{headers}).then(res =>{
+        axios.get(`/api/me`,{headers}).then(res =>{
               console.log(res.data)
         }).catch(() => {window.location.href = "/";})
        
