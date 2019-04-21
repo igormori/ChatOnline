@@ -22,7 +22,7 @@ class Chat extends Component {
   }
   
   componentWillMount(){
-    this.socket = io("http://localhost:5000");
+    this.socket = io("");
   }
   
   async componentDidMount() {
