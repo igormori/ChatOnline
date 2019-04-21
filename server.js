@@ -7,25 +7,25 @@ var cors = require('cors')
 const PORT = process.env.PORT || 3030
 
 //mangoose connection
-var db = require('./dbConnection.js')
+var db = require('./backend/dbConnection.js')
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors()) // Use this after the variable declaration
-app.use(express.static(path.join(__dirname,'../frontend/onlinechat/build')))
+app.use(express.static(path.join(__dirname,'./frontend/onlinechat/build')))
 
 //socke.io
 var socketIO = require('socket.io');
 var io = socketIO(server);
 
 //routes 
-let routes = require("./routes/routes.js");
+let routes = require("./backend/routes/routes.js");
 
 //routes to use
 app.use('/api',routes); 
 
 app.get('*',(req,res) =>{
-  res.sendFile(path.join(__dirname + '../frontend/onlinechat/build/index.html'))
+  res.sendFile(path.join(__dirname + './frontend/onlinechat/build/index.html'))
 })
 
 
@@ -38,7 +38,7 @@ server.listen(PORT , function() {
 });
 
 //socket.io functions
-require('./sockets.js')(io);
+require('./backend/sockets.js')(io);
 
 
 

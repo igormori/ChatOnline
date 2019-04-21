@@ -16,11 +16,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "client-install": "npm install --prefix client",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "server": "nodemon index.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "heroku-postbuild": "cd frontend && cd onlinechat && yarn run build"
   },
   "author": "",
   "license": "ISC",
