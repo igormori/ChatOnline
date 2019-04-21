@@ -103,7 +103,7 @@ class Chat extends Component {
           console.log(error)
         })
         this.setState({changeRoomBtn: ""}) 
-         window.location.reload()
+         window.location = "/"
         
     }
   }
