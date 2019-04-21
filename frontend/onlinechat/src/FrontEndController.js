@@ -1,11 +1,12 @@
 import axios from "axios"
 import { CardActions } from "@material-ui/core";
+let baseURL = process.env.baseURL || "http://localhost:5000"
 
 export const API = {
   frontEnd: {
     rooms: {
       get: function () {
-        return axios.get('http://localhost:5000/api/rooms')
+        return axios.get(`${baseURL}/api/rooms`)
       },
       getOne:function(room){
         return axios.get(`http://localhost:5000/api/rooms/${room}`)
