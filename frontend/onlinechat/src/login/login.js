@@ -24,7 +24,7 @@ class Login extends Component {
             console.log(res.data)
             if(res.data.auth){
                localStorage.setItem('token', res.data.token);
-               window.location.href = "/admin";
+               this.props.history.push('/admin');
             }
       }).catch(() => console.log("user not founded"))
     };
