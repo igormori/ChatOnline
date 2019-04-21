@@ -14,7 +14,7 @@ class Rooms extends React.Component {
      }
 
     componentDidMount(){
-            axios.get(`http://localhost:5000/api/rooms`).then(res =>{
+            axios.get(`/api/rooms`).then(res =>{
                   console.log(res.data)
                   var roomsArray =[]
                   for(var i=0; i < res.data.length ; i++){

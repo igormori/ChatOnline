@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000
 var db = require('./backend/dbConnection.js')
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors()) // Use this after the variable declaration
 
 
