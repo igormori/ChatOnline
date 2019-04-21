@@ -20,7 +20,7 @@ router.get('/eventLog',eventController.getEvents);
 router.put('/users/room/:user',users.editRoom);
 
 router.post('/users',users.registerUsers);
-router.put('/users/:email',users.editOne);
+router.put('/users/:user',users.editOne);
 router.get('/users/',users.getusers);
 router.get('/users/:room',users.getUserByRoom );
 

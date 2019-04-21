@@ -25,7 +25,7 @@ exports.registerUsers = async function (req, res) {
 
 exports.editOne = async function (req, res) {
     try {
-        await users.updateOne({name:req.params.name}, {
+        await users.updateOne({user:req.params.user}, {
             connected: req.body.connected
         })
         res.status(200).send({
