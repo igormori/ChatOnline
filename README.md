@@ -9,6 +9,7 @@
 ## How to run the project:
 1- open the terminal
 2- navigate as bellow from the root directory
+3- AdminPanel login: useName: admin@admin.com  password: admin1234
 
 - backend
     1. cd backend
