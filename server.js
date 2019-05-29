@@ -22,8 +22,9 @@ var io = socketIO(server);
 let routes = require("./backend/routes/routes.js");
 
 //routes to use
-app.use('/api',routes); 
+
 app.use(express.static(path.join(__dirname,'./frontend/onlinechat/build')))
+app.use('/api',routes); 
 
 app.get('*',(req,res) =>{
   res.sendFile(path.join(__dirname + './frontend/onlinechat/build/index.html'))
