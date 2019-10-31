@@ -9,7 +9,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.0",
-    "mongoose": "^5.4.17",
+    "mongoose": "^5.7.5",
     "request": "^2.88.0",
     "requests": "^0.2.2",
     "socket.io": "^2.2.0"
